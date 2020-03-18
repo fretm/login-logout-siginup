@@ -3,7 +3,9 @@ const router = express.Router();
 const User = require("../model/user");
 const bcrypt = require('bcryptjs');
 const passport = require('passport')
-router.get("/login", (req, res) => res.render("login"));
+const controler= require('../controler/login')
+
+router.get("/login",controler.loginpage );
 
 router.get("/register", (req, res) => res.render("register"));
 

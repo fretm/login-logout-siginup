@@ -1,5 +1,6 @@
 const express = require('express');
 const expresslayout = require('express-ejs-layouts')
+const path = require('path')
 const app = express();
 const mongoose = require('mongoose')
 const flash=require('connect-flash')
@@ -11,6 +12,8 @@ const passport = require('passport')
 //Passport config
  require('./config/passport')(passport)
 
+ //static path
+ app.use('/images',express.static(path.join(__dirname,'public','images')))
 
 mongoose.connect(db,{useNewUrlParser:true, useUnifiedTopology: true })
 .then(()=>{console.log("mongo db connected")
